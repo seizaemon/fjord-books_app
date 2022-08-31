@@ -1,5 +1,5 @@
 <h1><%= t('.page_title') %></h1>
-<p><%= link_to "英/日 切替", edit_book_path(locale: @locale) %></p>
+<p><%= link_to t(:switch_locale), edit_book_path(locale: @locale) %></p>
 
 <%= render 'form', {book: @book, action_name: t('.action_name')} %>
 

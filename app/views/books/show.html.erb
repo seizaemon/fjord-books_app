@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to "英/日 切替", book_path(params[:id], locale: @locale) %></p>
+<p><%= link_to t(:switch_locale), book_path(params[:id], locale: @locale) %></p>
 
 <p>
   <strong><%= t Book.human_attribute_name(:title) + ":" %></strong>

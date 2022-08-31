@@ -3,6 +3,7 @@ ja:
   edit: 編集
   back: 戻る
   destroy: 削除
+  switch_locale: 英/日 切替
 
   books:
     index:
