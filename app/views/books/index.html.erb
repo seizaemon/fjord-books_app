@@ -2,13 +2,15 @@
 
 <h1><%= t '.page_title' %></h1>
 
+<p><%= link_to "英/日 切替", books_path(locale: @locale) %></p>
+
 <table>
   <thead>
     <tr>
-      <th><%= t :title %></th>
-      <th><%= t :memo %></th>
-      <th><%= t :author %></th>
-      <th><%= t :picture %></th>
+      <th><%= t @books.human_attribute_name(:title) %></th>
+      <th><%= t @books.human_attribute_name(:memo) %></th>
+      <th><%= t @books.human_attribute_name(:author) %></th>
+      <th><%= t @books.human_attribute_name(:picture) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

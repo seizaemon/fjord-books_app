@@ -34,17 +34,12 @@ en:
   edit: Edit
   back: Back
   destroy: Destroy
-  title: Title
-  memo: Memo
-  author: Author
-  picture: Picture
 
   books:
     index:
       page_title: Books
       new_book: New book
       ask_delete: Are you sure?
-    show:
     new:
       page_title: New book
       action_name: Create

@@ -2,6 +2,18 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_locale_query
+  around_action :set_locale
+
+  def set_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
+  end
+
+  def reverse_locale(param)
+    I18n.default_locale if param.nil?
+    param == 'en' ? 'ja' : 'en'
+  end
 
   # GET /books
   # GET /books.json
@@ -66,6 +78,10 @@ class BooksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def set_locale_query
+    @locale = reverse_locale(params[:locale])
   end
 
   # Only allow a list of trusted parameters through.
