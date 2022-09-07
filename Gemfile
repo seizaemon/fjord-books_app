@@ -61,4 +61,4 @@ gem 'net-smtp'
 
 gem 'carrierwave'
 
-gem "kaminari", "~> 1.2"
+gem 'kaminari', '~> 1.2'
