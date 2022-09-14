@@ -14,7 +14,17 @@
   </thead>
 
   <tbody>
-    <%= render :partial => 'index' %>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.memo %></td>
+        <td><%= book.author %></td>
+        <td><%= book.picture %></td>
+        <td><%= link_to t('views.common.show'), book %></td>
+        <td><%= link_to t('views.common.edit'), edit_book_path(book) %></td>
+        <td><%= link_to t('views.common.destroy'), book, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

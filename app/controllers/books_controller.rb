@@ -7,9 +7,6 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.order(:id).page(params[:page]).per(5)
-    respond_to do |format|
-      format.html
-    end
   end
 
   # GET /books/1
