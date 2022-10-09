@@ -1,4 +1,9 @@
 ja:
+  header:
+    welcome: "ようこそ！ %{name} さん！"
+    account_profile: アカウント
+    account_sign_out: ログアウト
+
   activerecord:
     models:
       book: 本  #g
