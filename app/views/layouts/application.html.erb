@@ -14,10 +14,16 @@
       <ul>
         <% if user_signed_in? %>
           <li>
-            <%= t('header.welcome', name: current_user.email) %>
+            ID: <%= current_user.email %>
+          </li>
+          <li>
+            <%= link_to t('header.top'), books_path %>
           </li>
           <li>
             <%= link_to t('header.account_profile'), edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to t('header.users'), users_path %>
           </li>
           <li>
             <%= link_to t('header.account_sign_out'), destroy_user_session_path, method: "delete" %>
@@ -26,18 +32,18 @@
       </ul>
     </div>
 
-    <div class="flash-messages">
-      <% if flash[:notice] %>
-        <div class="notice">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert">
-          <%= flash[:alert] %>
-        </div>
-      <% end %>
-    </div>
+<!--    <div class="flash-messages">-->
+      <%# if flash[:notice] %>
+<!--        <div class="notice">-->
+          <%#= flash[:notice] %>
+<!--        </div>-->
+      <%# end %>
+      <%# if flash[:alert] %>
+<!--        <div class="alert">-->
+          <%#= flash[:alert] %>
+<!--        </div>-->
+      <%# end %>
+<!--    </div>-->
 
     <%= yield %>
   </body>

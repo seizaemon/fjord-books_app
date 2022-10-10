@@ -1,0 +1,54 @@
+<h2><%= t(".title", name: resource_name.to_s.humanize) %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %> <i><%= t(".if_not_pw_change") %></i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= t("users.pw_minimum_length", length: @minimum_password_length) %></em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_number %> <br />
+    <%= f.text_field :postal_number, autocomplete: "postal_number"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %> <br />
+    <%= f.text_field :address, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction %> <br />
+    <%= f.text_area :introduction, autocomplete: "introduction" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(<%= t(".need_current_pw_confirm") %>)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t(".update_button") %>
+  </div>
+<% end %>
+
+<h3><%= t(".cancel_title") %></h3>
+
+<p><%= button_to t(".cancel_button"), registration_path(resource_name), data: { confirm: t(".cancel_confirm") }, method: :delete %></p>
+
+<%= link_to t(".back"), :back %>
