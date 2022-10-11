@@ -18,12 +18,13 @@ ja:
       edit:
         title: "%{name} アカウント編集"
         if_not_pw_change: パスワードを変更しない場合は空欄のままにしてください
-        need_current_pw_confirm: パスワード変更には現在のパスワードの入力が必要です
+        need_current_pw_confirm: 変更には現在のパスワードの入力が必要です
         update_button: 更新
         cancel_title: アカウントをキャンセル
         cancel_button: アカウントをキャンセル
         cancel_confirm: キャンセルしてよろしいですか？
         back: 戻る
+        have_cancelled: アカウントを削除しました
 
     passwords:
       new:

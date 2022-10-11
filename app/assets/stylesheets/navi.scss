@@ -1,0 +1,31 @@
+div.nav_header {
+    display: flex;
+    flex-direction: column;
+  ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    padding-left: 0;
+    li {
+      margin-left: 0.3em;
+      margin-right: 0.3em;
+    }
+    li:nth-child(1) {
+      margin-left: 0;
+      margin-right: 0.3em;
+    }
+    li:nth-last-child(1) {
+      margin-left: 0.3em;
+      margin-right: 0;
+    }
+  }
+}
+
+div.flash-messages {
+  div.notice {
+    color: green;
+  }
+  div.alert {
+    color: red;
+  }
+}
