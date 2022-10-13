@@ -30,6 +30,11 @@ ja:
       new:
         title: パスワードを忘れた方
         button: パスワードリセットのメールを送信する
+      edit:
+        title: パスワードの変更
+        new_pw: 新しいパスワード
+        confirm_pw: パスワードの確認
+        button: 変更
 
     pw_minimum_length: "%{length}文字以上"
     login: ログイン
