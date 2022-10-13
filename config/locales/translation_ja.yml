@@ -16,7 +16,7 @@ ja:
         button: 新規登録
         title: 新規登録
       edit:
-        title: "%{name} アカウント編集"
+        title: アカウント編集
         if_not_pw_change: パスワードを変更しない場合は空欄のままにしてください
         need_current_pw_confirm: 変更には現在のパスワードの入力が必要です
         update_button: 更新

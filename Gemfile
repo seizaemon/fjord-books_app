@@ -44,7 +44,6 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-
 end
 
 group :test do
@@ -63,5 +62,5 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
+gem 'kaminari'
