@@ -36,6 +36,15 @@ ja:
         confirm_pw: パスワードの確認
         button: 変更
 
+    mailer:
+      reset_password_instructions:
+        greeting: "%{recipient}さん"
+        instruction1: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
+        instruction2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
+        instruction3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
+        subject: パスワードの再設定について
+        link_label: パスワード再設定
+
     pw_minimum_length: "%{length}文字以上"
     login: ログイン
     sign_up: 新規登録
