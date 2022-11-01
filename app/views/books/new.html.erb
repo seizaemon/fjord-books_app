@@ -1,5 +1,6 @@
-<h1>New Book</h1>
+<h1><%= t '.page_title' %></h1>
+<p><%= link_to t(:switch_locale), books_new_path(locale: @locale) %></p>
 
-<%= render 'form', book: @book %>
+<%= render 'form', {book: @book, action_name: t(".action_name")} %>
 
-<%= link_to 'Back', books_path %>
+<%= link_to t(:back), books_path %>
