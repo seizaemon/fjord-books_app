@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <div class="nav_header">
+        <b>ID: <%= current_user.email %></b>
+        <ul>
+          <li>
+            <%= link_to t('header.top'), books_path %>
+          </li>
+          <li>
+            <%= link_to t('header.account_profile'), edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to t('header.users'), users_path %>
+          </li>
+          <li>
+            <%= link_to t('header.account_sign_out'), destroy_user_session_path, method: "delete" %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="flash-messages">
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

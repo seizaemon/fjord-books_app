@@ -1,5 +1,7 @@
 ---
 en:
+  header:
+    welcome: "Welcome %{name}!"
   activerecord:
     errors:
       messages:

@@ -221,6 +221,7 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
