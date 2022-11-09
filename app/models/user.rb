@@ -10,6 +10,8 @@ class User < ApplicationRecord
   private
 
   def icon_image_type
+    return if icon.blob.nil?
+
     format_allowed = %w[image/gif image/jpeg image/png]
     errors.add :icon, :invalid_format, message: I18n.t('activerecord.models.errors.icon.invalid_format') unless format_allowed.include?(icon.blob.content_type)
   end
