@@ -5,7 +5,7 @@ ja:
       user: ユーザ
       errors:
         icon:
-          invalid_format: 'アップロードできる画像はPNG, JPEG, GIFに限られています'
+          invalid_type: 'アップロードできる画像はPNG, JPEG, GIFに限られています'
 
     attributes:
       book:
