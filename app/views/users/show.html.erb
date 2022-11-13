@@ -2,8 +2,8 @@
 
 <p>
   <strong><%= User.human_attribute_name(:icon) %>:</strong>
-  <% unless user.icon.attached? %>
-    <%= image_tag user.icon, class:"user-icon" %>
+  <% if @user.icon.attached? %>
+    <%= image_tag @user.icon.variant(resize_to_fit: [50, 50]), class:"user-icon" %>
   <% end %>
 </p>
 

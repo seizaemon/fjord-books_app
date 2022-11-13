@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   def index
-    @users = User.order(:id).page(params[:page]).includes(:icon_attachment)
+    @users = User.order(:id).page(params[:page]).with_attached_icon
   end
 
   def show

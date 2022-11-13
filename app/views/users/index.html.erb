@@ -17,7 +17,7 @@
       <tr>
         <td>
           <% if user.icon.attached? %>
-            <%= image_tag user.icon, class:"user-icon" %>
+            <%= image_tag user.icon.variant(resize_to_fit: [50, 50]), class:"user-icon" %>
           <% end %>
         </td>
         <td><%= user.email %></td>
