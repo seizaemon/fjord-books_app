@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :icon
-  validate :image_type_is_allowed
+  validate :image_type_can_be_accepted
 
   private
 
-  def image_type_is_allowed
+  def image_type_can_be_accepted
     return if icon.blob.nil?
 
     allowed_types = %w[image/gif image/jpeg image/png]
