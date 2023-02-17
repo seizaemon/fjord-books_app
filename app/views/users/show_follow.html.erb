@@ -25,7 +25,7 @@
         <td>
           <% if controller.action_name == 'followings' %>
             <%= form_for current_user.active_relations.find_by(follower_id: user.id), html: {method: :delete} do |f| %>
-              <%= button_tag 'フォローを外す', type: 'submit' %>
+              <%= button_tag t('views.unfollow'), type: 'submit' %>
             <% end %>
           <% end %>
         </td>
