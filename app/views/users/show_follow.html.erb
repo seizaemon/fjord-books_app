@@ -1,0 +1,39 @@
+<h1><%= @title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <% if user.avatar.attached? %>
+            <%= image_tag user.avatar.variant(resize_to_fill: [15, 15]) %>
+          <% end %>
+        </td>
+        <td><%= user.email %></td>
+        <td><%= user.name  %></td>
+        <td><%= link_to '詳細', user %></td>
+        <td>
+          <% if controller.action_name == 'followings' %>
+            <%= form_for current_user.active_relations.find_by(follower_id: user.id), html: {method: :delete} do |f| %>
+              <%= button_tag 'フォローを外す', type: 'submit' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>
+
+<%= link_to 'ユーザー詳細に戻る', @user %>
