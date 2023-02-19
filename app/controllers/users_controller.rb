@@ -31,7 +31,6 @@ class UsersController < ApplicationController
 
   def followers
     @user = User.find(params[:id])
-    # @title = "#{@user.name}'s followers"
     @title = t('views.followers_title', email: @user.email)
     @users = @user.followers.with_attached_avatar.page(params[:page])
     render 'show_follow'
