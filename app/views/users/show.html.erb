@@ -45,11 +45,12 @@
 <% unless @user == current_user %>
   <p>
     <% if current_user.following?(@user) %>
-      <%= form_with model: current_user.active_relations.find_by(follower_id: @user.id), method: :delete do |f| %>
+      <%= form_with url: follow_relation_path, method: :delete do |f| %>
+        <div><%= hidden_field_tag :follower_id, @user.id %></div>
         <%= button_tag t('views.unfollow'), type: 'submit' %>
       <% end %>
     <% else %>
-      <%= form_with model: current_user.active_relations.new do |f| %>
+      <%= form_with url: follow_relation_path do |f| %>
         <div><%= hidden_field_tag :follower_id, @user.id %></div>
         <%= button_tag t('views.follow'), type: 'submit' %>
       <% end %>
@@ -59,7 +60,8 @@
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
-  <%= link_to t('views.followings_count'), followings_user_path %> |
-  <%= link_to t('views.followers_count'), followers_user_path %> |
 <% end %>
+<%= link_to t('views.followings_link'), followings_user_path %> |
+<%= link_to t('views.followers_link'), followers_user_path %> |
+
 <%= link_to t('views.common.back'), users_path %>

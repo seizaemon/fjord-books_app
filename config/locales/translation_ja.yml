@@ -23,3 +23,5 @@ ja:
     unfollow: フォローを外す
     followings_title: "%{email}がフォローしているユーザー"
     followers_title: "%{email}をフォローしているユーザー"
+    followings_link: フォローしているユーザー
+    followers_link: フォローされているユーザー

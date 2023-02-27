@@ -24,7 +24,8 @@
         <td><%= link_to '詳細', user %></td>
         <td>
           <% if controller.action_name == 'followings' %>
-            <%= form_with model: current_user.active_relations.find_by(follower_id: user.id), method: :delete do |f| %>
+            <%= form_with url: follow_relation_path, method: :delete do |f| %>
+              <div><%= hidden_field_tag :follower_id, @user.id %></div>
               <%= button_tag t('views.unfollow'), type: 'submit' %>
             <% end %>
           <% end %>

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       get 'followings'
     end
   end
-  resources :follow_relations, only: %i(create destroy)
+  resource :follow_relation, only: %i(create destroy)
 end
 

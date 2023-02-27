@@ -9,21 +9,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def follow
-    current_user.follow(params[:id])
-    @users = current_user.followings.with_attached_avatar.page(params[:page])
-    render 'show_follow'
-  end
-
-  def unfollow
-    current_user.unfollow(params[:id])
-    @users = current_user.followings.with_attached_avatar.page(params[:page])
-    render 'show_follow'
-  end
-
   def followings
     @user = User.find(params[:id])
-    # @title = t("#{@user.name}'s following Users"
     @title = t('views.followings_title', email: @user.email)
     @users = @user.followings.with_attached_avatar.page(params[:page])
     render 'show_follow'
