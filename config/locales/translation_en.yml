@@ -15,3 +15,10 @@ en:
         address: Address
         self_introduction: Self introduction
         avatar: "User image"
+  views:
+    followings_count: followings
+    followers_count: followers
+    follow: follow
+    unfollow: unfollow
+    followings_title: "%{email} followings"
+    followers_title: "%{email} followers"
