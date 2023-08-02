@@ -7,7 +7,7 @@
       <th><%= Book.human_attribute_name(:memo) %></th>
       <th><%= Book.human_attribute_name(:author) %></th>
       <th><%= Book.human_attribute_name(:picture) %></th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -21,6 +21,7 @@
         <td><%= link_to t('views.common.show'), book %></td>
         <td><%= link_to t('views.common.edit'), edit_book_path(book) %></td>
         <td><%= link_to t('views.common.destroy'), book, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <td><%= link_to 'Comment', new_book_comments_path(book) %></td>
       </tr>
     <% end %>
   </tbody>
