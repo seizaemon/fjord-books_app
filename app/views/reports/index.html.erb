@@ -4,8 +4,7 @@
   <thead>
     <tr>
       <th><%= Report.human_attribute_name(:title) %></th>
-      <th><%= Report.human_attribute_name(:memo) %></th>
-      <th><%= Report.human_attribute_name(:author) %></th>
+      <th><%= Report.human_attribute_name(:content) %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -14,8 +13,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.title %></td>
-        <td><%= report.memo %></td>
-        <td><%= report.author %></td>
+        <td><%= report.content %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
