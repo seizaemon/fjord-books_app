@@ -12,3 +12,23 @@
 <%= link_to 'Back', reports_path %>
 
 <%# コメントが一覧で入る %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:content) %></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.user.name %></td>
+        <td><%= link_to 'Edit', edit_report_comment_path(comment) %>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
