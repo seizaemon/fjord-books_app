@@ -23,8 +23,9 @@
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
 
-<%# コメントが一覧で入る %>
+<hr>
 
+<%= link_to 'New Comment', new_book_comment_path(@book) %>
 <table>
   <thead>
     <tr>
@@ -34,14 +35,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @comment.each do |comment| %>
+    <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
         <td><%= comment.user.name %></td>
-        <td><%= link_to 'Edit', edit_book_comment_path %>
-        <% if comment.user.id == current_user.id %>
-          <td><%= link_to 'Delete', delete_book_comment_path %>
-        <% end %>
+        <td><%= link_to 'Edit', edit_book_comment_path(@book, comment) %></td>
+        <td><%= link_to 'Delete', book_comment_path(@book, comment), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

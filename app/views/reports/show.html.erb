@@ -10,8 +10,9 @@
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>
+<hr>
 
-<%# コメントが一覧で入る %>
+<%= link_to 'New Comment', new_report_comment_path(@report) %>
 
 <table>
   <thead>
@@ -27,7 +28,9 @@
         <td><%= comment.content %></td>
         <td><%= comment.user.name %></td>
         <td><%= link_to 'Edit', edit_report_comment_path(comment) %>
-        <td></td>
+        <td>
+          <%# コメント削除 %>
+        </td>
       </tr>
     <% end %>
   </tbody>
