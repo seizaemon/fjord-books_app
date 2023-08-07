@@ -31,17 +31,34 @@
     <tr>
       <th><%= Comment.human_attribute_name(:content) %></th>
       <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
-    <% @comments.each do |comment| %>
+    <% if @comments.count == 0 %>
       <tr>
-        <td><%= comment.content %></td>
-        <td><%= comment.user.name %></td>
-        <td><%= link_to 'Edit', edit_book_comment_path(@book, comment) %></td>
-        <td><%= link_to 'Delete', book_comment_path(@book, comment), method: :delete %></td>
+        <td colspan="5">No comments yet</td>
       </tr>
+    <% else %>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.content %></td>
+          <td><%= comment.user.name %></td>
+          <td><%= comment.created_at %></td>
+          <td>
+            <% if comment.user.id == current_user.id %>
+              <%= link_to 'Edit', edit_book_comment_path(@book, comment) %>
+            <% end %>
+          </td>
+              
+          <td>
+            <% if comment.user.id == current_user.id %>
+              <%= link_to 'Delete', book_comment_path(@book, comment), method: :delete, data: { confirm: 'Can you delete this comment?' } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
