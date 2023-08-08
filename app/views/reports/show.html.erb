@@ -20,7 +20,7 @@
     <tr>
       <th><%= Comment.human_attribute_name(:content) %></th>
       <th><%= User.human_attribute_name(:name) %></th>
-      <th><%= Comment.human_attribute_name(:created_at)%>
+      <th><%= Comment.human_attribute_name(:created_at) %>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -43,7 +43,7 @@
             <% end %>
           <td>
           <% if comment.user.id == current_user.id %>
-              <%= link_to t('views.common.destroy'), report_comment_path(@report, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') }%>
+              <%= link_to t('views.common.destroy'), report_comment_path(@report, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
             <% end %>
           </td>
         </tr>
