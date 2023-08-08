@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
 
-    redirect_to @commentable, notice: 'Comment was successfully created.' if @comment.save
+    redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human) if @comment.save
   end
 
   def index
@@ -20,11 +20,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @commentable, notice: 'Comment was successfully destroyed.'
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   def update
-    redirect_to @commentable, notice: 'Comment was successfully updated.' if @comment.update(comment_params)
+    redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human) if @comment.update(comment_params)
   end
 
   def edit; end

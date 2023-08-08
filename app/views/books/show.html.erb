@@ -25,7 +25,7 @@
 
 <hr>
 
-<%= link_to 'New Comment', new_book_comment_path(@book) %>
+<%= link_to t('views.common.title_new', name: Comment.model_name.human), new_book_comment_path(@book) %>
 <table>
   <thead>
     <tr>
@@ -38,7 +38,7 @@
   <tbody>
     <% if @comments.count == 0 %>
       <tr>
-        <td colspan="5">No comments yet</td>
+        <td colspan="5"><%= t('views.common.noexistence', name: Comment.model_name.human) %></td>
       </tr>
     <% else %>
       <% @comments.each do |comment| %>
@@ -48,13 +48,12 @@
           <td><%= comment.created_at %></td>
           <td>
             <% if comment.user.id == current_user.id %>
-              <%= link_to 'Edit', edit_book_comment_path(@book, comment) %>
+              <%= link_to t('views.common.edit'), edit_book_comment_path(@book, comment) %>
             <% end %>
           </td>
-              
           <td>
             <% if comment.user.id == current_user.id %>
-              <%= link_to 'Delete', book_comment_path(@book, comment), method: :delete, data: { confirm: 'Can you delete this comment?' } %>
+              <%= link_to t('views.common.destroy'), book_comment_path(@book, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
             <% end %>
           </td>
         </tr>
