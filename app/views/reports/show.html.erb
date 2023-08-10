@@ -35,7 +35,11 @@
       <% @comments.each do |comment| %>
         <tr>
           <td><%= comment.content %></td>
-          <td><%= comment.user.name %></td>
+          <% if comment.user.name == '' %>
+            <td><%= comment.user.email %></td>
+          <% else %>
+            <td><%= comment.user.name %></td>
+          <% end %>
           <td><%= comment.created_at %></td>
           <td>
             <% if comment.user.id == current_user.id %>
