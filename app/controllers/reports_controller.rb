@@ -24,6 +24,8 @@ class ReportsController < ApplicationController
   # POST /reports
   def create
     @report = Report.new(report_params)
+    @report.user_id = current_user.id
+
     if @report.save
       redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
@@ -33,7 +35,7 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1
   def update
-    if @report.user == current_user && @report.update(report_params)
+    if @report.user_id == current_user.id && @report.update(report_params)
 
       redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
@@ -43,8 +45,8 @@ class ReportsController < ApplicationController
 
   # DELETE /reports/1
   def destroy
-    if @report.user == current_user && @report.destroy
-      redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
+    if @report.user_id == current_user.id && @report.destroy
+      redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
     else
       render @commentable
     end
