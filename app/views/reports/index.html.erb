@@ -17,8 +17,16 @@
         <td><%= report.content %></td>
         <td><%= report.created_at %></td>
         <td><%= link_to t('views.common.show'), report %></td>
-        <td><%= link_to t('views.common.edit'), edit_report_path(report) %></td>
-        <td><%= link_to t('views.common.destroy'), report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <td>
+          <% if report.user_id == current_user.id %>
+            <%= link_to t('views.common.edit'), edit_report_path(report) %>
+          <% end %>
+        </td>
+        <td>
+          <% if report.user_id == current_user.id %>
+            <%= link_to t('views.common.destroy'), report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+          <% end %>
+        </td>
         <td><%= link_to Comment.model_name.human, new_report_comment_path(report) %></td>
       </tr>
     <% end %>

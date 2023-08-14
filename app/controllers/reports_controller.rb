@@ -29,7 +29,7 @@ class ReportsController < ApplicationController
     if @report.save
       redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
-      render @render
+      render @report
     end
   end
 
@@ -39,7 +39,7 @@ class ReportsController < ApplicationController
 
       redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
-      render @render
+      render :edit
     end
   end
 
@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
     if @report.user_id == current_user.id && @report.destroy
       redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
     else
-      render @commentable
+      redirect_to reports_url
     end
   end
 
