@@ -22,3 +22,48 @@
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
+
+<hr>
+
+<%= link_to t('views.common.title_new', name: Comment.model_name.human), new_book_comment_path(@book) %>
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:content) %></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @comments.count == 0 %>
+      <tr>
+        <td colspan="5"><%= t('views.common.noexistence', name: Comment.model_name.human) %></td>
+      </tr>
+    <% else %>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.content %></td>
+          <td>
+            <% if comment.user.name == '' %>
+              <%= comment.user.email %>
+            <% else %>
+              <%= comment.user.name %>
+            <% end %>
+          </td>
+          <td><%= comment.created_at %></td>
+          <td>
+            <% if comment.user.id == current_user.id %>
+              <%= link_to t('views.common.edit'), edit_book_comment_path(@book, comment) %>
+            <% end %>
+          </td>
+          <td>
+            <% if comment.user.id == current_user.id %>
+              <%= link_to t('views.common.destroy'), book_comment_path(@book, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
