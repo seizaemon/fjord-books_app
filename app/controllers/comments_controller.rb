@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     if @comment.user == current_user && @comment.destroy
       redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
-      render @commentable
+      redirect_to @commentable
     end
   end
 
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     if @comment.user == current_user && @comment.update(comment_params)
       redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
-      render @commentable
+      render :edit
     end
   end
 
